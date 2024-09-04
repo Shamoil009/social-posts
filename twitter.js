@@ -2,10 +2,10 @@
 // // const config = require('./config'); // Create a config.js file to store your Twitter API credentials
 
 // const T = new Twit({
-//   consumer_key: "bWjHGF0WOh3AShfW1OzrBEPCH",
-//   consumer_secret: "MOBhd1YTmaVow7zvcbUF9ZTZfdSCeQTyXRWxp0qtsOoMkLWXI4",
-//   access_token: "1724683685876862976-nWn3TtX5m2HJUqLoh5ooEEwO3XhZQs",
-//   access_token_secret: "7pK7AsWqx8z7DsanvbRs0hxDpzqxQx1M1QKrxG3gBOb24",
+//   consumer_key: process.env.TW_CONSUMER_KEY,
+//   consumer_secret: process.env.TW_CONSUMER_SECRET,
+//   access_token: process.env.TW_ACCESS_TOKEN,
+//   access_token_secret: process.env.TW_ACCESS_TOKEN_SECRET,
 // });
 
 // // The user ID or screen name of the user on whose behalf you want to post
@@ -30,7 +30,7 @@
 // const { TwitterApi }=require('twitter-api-v2');
 
 // // Instantiate with desired auth type (here's Bearer v2 auth)
-// const twitterClient = new TwitterApi('eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0..3ZwjLm6Elp4Lv4Z3.PEQjqIcXlAg0XOh9kVYLBZUdC3dPhbqbZglfa_Ht7Cx0g9W5IWnQNbJ6aG24uuyxUVna9i1ap5pymHy4e5hCa4OujxXmCT1O_rPfC_sl7ckxgjxCy3pGhoRdcwNnZEZSffn7FbJDwLySGppF29Cm_kXDcdg8I1YJC1McqzgbVPT22hVbMjt2MEIYNB1k8EB6iECeoKIuJTrB2gvbiDgOheIcyQIgUdy8esvTCxAIin7H42PtjkA-MoldpJrpsK2Gnqp8_awTIy4t8jhfPHIWYTXuaIsj-F3nQ9k65YA3VBGXY2LAOK9w7_psF6SVzaDbVyN-4NtWElG1FA.Ip5saJMB-CU_gmJN5-OUpQ');
+// const twitterClient = new TwitterApi('eyJhbGciOiJkaXIiLCJlbmMiOiJBMjU2R0NNIn0.....');
 
 // // Tell typescript it's a readonly app
 // const readOnlyClient = twitterClient.readOnly;
@@ -58,8 +58,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Twitter API init
 const TwitterApi = require("twitter-api-v2").default;
 const twitterClient = new TwitterApi({
-  clientId: "MG9aZ04tY0RpUkNGNl9uck5tbG86MTpjaQ",
-  clientSecret: "krKqwYzg-jT4pQZzvDzfG-TW6Zi50eS5cq1LXm5K3aO7rL82kU",
+  clientId: process.env.TW_CLIENT_ID,
+  clientSecret: process.env.TW_CLIENT_SECRET,
 });
 
 let codeGlobal;
