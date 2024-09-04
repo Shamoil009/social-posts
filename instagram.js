@@ -24,8 +24,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 passport.use(
   new FacebookStrategy(
     {
-      clientID: "1455900588293352",
-      clientSecret: "930441a42b4be5ec6e745efd7583832b",
+      clientID: process.env.FB_CLIENT_ID,
+      clientSecret:process.env.FB_CLIENT_SECRET,
       callbackURL: "http://localhost:4000/auth/facebook/callback",
       // state: true,
       //   profileFields: ["id", "displayName", "photos", "email"],
@@ -38,7 +38,7 @@ passport.use(
       //   token usable for 60 days
       const longLivedUserAccessToken = await axios
         .get(
-          `https://graph.facebook.com/v19.0/oauth/access_token?grant_type=fb_exchange_token&client_id=1455900588293352&client_secret=930441a42b4be5ec6e745efd7583832b&fb_exchange_token=${accessToken}`
+          `https://graph.facebook.com/v19.0/oauth/access_token?grant_type=fb_exchange_token&client_id=${process.env.FB_CLIENT_ID}&client_secret=${process.env.FB_CLIENT_SECRET}&fb_exchange_token=${accessToken}`
         )
         .catch((err) => {
           console.log(err);
